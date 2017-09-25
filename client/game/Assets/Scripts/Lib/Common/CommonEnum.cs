@@ -10,3 +10,20 @@ public enum Direction
     Vertical,//竖直
     Horizontal,//水平
 }
+
+public enum SocketName
+{
+    None,
+    MainSocket,//主socket连接
+    CrossSocket,//跨服连接
+    UdpSocket,//Udp连接
+}
+
+public enum ConnectResultType
+{
+    None = 0,
+    SocketConnectSuccess,//socket连接成功
+    SocketConnecting,// socket 连接中
+    SocketConnectFail,// 连接socket失败
+
+}
