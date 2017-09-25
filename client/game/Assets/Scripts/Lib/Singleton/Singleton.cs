@@ -14,12 +14,6 @@ public class Singleton<T> where T: new()
     protected Singleton()
     {
         Debug.Assert(instance == null);
-        Init();
-    }
-
-    protected virtual void Init()
-    {
-
     }
 
 	public static bool Exists

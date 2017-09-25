@@ -4,6 +4,24 @@ using System.Collections;
 
 public static class ExtendFuncHelper
 {
+    /// <summary>
+    /// 【扩展】设置UI组件的父对象、坐标
+    /// </summary>
+    /// <param name="source"></param>
+    /// <param name="parent"></param>
+    /// <param name="x">如果为float.NaN，则不更改</param>
+    /// <param name="y">如果为float.NaN，则不更改</param>
+    public static void SetUILocation(this RectTransform source, Transform parent, float x = float.NaN, float y = float.NaN)
+    {
+        source.SetParent(parent, false);
+        var pos = source.anchoredPosition;
+        if (!float.IsNaN(x))
+            pos.x = x;
+        if (!float.IsNaN(y))
+            pos.y = y;
+        source.anchoredPosition = pos;
+    }
+
     static public T AddMissingComponent<T>(this GameObject go) where T : Component
     {
         if (go == null)

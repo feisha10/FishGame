@@ -22,11 +22,17 @@ public class MainControl : SingletonMonoBehaviour<MainControl>
 
     void InitFirstUtil()
     {
-
+        FirstInit();
     }
 
     private void FirstInit()
     {
+        UILayerManager.Instance.Init();
+        UIManager.Init(SceneName.MainScene);
 
+        UILayerManager.Instance.OpenPanel("LoginView", o =>
+        {
+
+        });
     }
 }
