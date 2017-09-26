@@ -103,11 +103,32 @@ namespace UnityEditor.UI
 
         // Graphic elements
 
-        [MenuItem("GameObject/UI/Text", false, 2000)]
+        [MenuItem("GameObject/UI/Text/Text20", false, 2000)]
         static public void AddText(MenuCommand menuCommand)
         {
-            GameObject go = DefaultControls.CreateText(GetStandardResources());
+            GameObject go = CreateText(GetStandardResources(),20);
             PlaceUIElementRoot(go, menuCommand);
+        }
+
+        [MenuItem("GameObject/UI/Text/Text24", false, 2000)]
+        static public void AddText24(MenuCommand menuCommand)
+        {
+            GameObject go = CreateText(GetStandardResources(), 24);
+            PlaceUIElementRoot(go, menuCommand);
+        }
+
+        public static GameObject CreateText(DefaultControls.Resources resources, int fontSize)
+        {
+            GameObject go = UGUITools.CreateUIElementRoot("Text", UGUITools.s_ThickElementSize);
+
+            Text lbl = go.AddComponent<Text>();
+            lbl.text = "New Text";
+            lbl.fontSize = fontSize;
+            lbl.raycastTarget = false;
+            lbl.supportRichText = false;
+            UGUITools.SetDefaultTextValues(lbl);
+
+            return go;
         }
 
         [MenuItem("GameObject/UI/Image", false, 2001)]
@@ -133,6 +154,20 @@ namespace UnityEditor.UI
         {
             GameObject go = DefaultControls.CreateButton(GetStandardResources());
             PlaceUIElementRoot(go, menuCommand);
+
+            SetDefaultTxt(go);
+        }
+
+        static void SetDefaultTxt(GameObject go)
+        {
+            Text[] txts = go.GetComponentsInChildren<Text>(true);
+            for (int i = 0; i < txts.Length; i++)
+            {
+                Text txt = txts[i];
+                UGUITools.SetDefaultTextValues(txt);
+                txt.color = ColorEnum.White;
+                txt.fontSize = 24;
+            }
         }
 
         [MenuItem("GameObject/UI/Toggle", false, 2031)]
@@ -140,6 +175,8 @@ namespace UnityEditor.UI
         {
             GameObject go = DefaultControls.CreateToggle(GetStandardResources());
             PlaceUIElementRoot(go, menuCommand);
+
+            SetDefaultTxt(go);
         }
 
         // Slider and Scrollbar modify a number
@@ -165,6 +202,8 @@ namespace UnityEditor.UI
         {
             GameObject go = DefaultControls.CreateDropdown(GetStandardResources());
             PlaceUIElementRoot(go, menuCommand);
+
+            SetDefaultTxt(go);
         }
 
         [MenuItem("GameObject/UI/Input Field", false, 2036)]
@@ -172,6 +211,8 @@ namespace UnityEditor.UI
         {
             GameObject go = DefaultControls.CreateInputField(GetStandardResources());
             PlaceUIElementRoot(go, menuCommand);
+
+            SetDefaultTxt(go);
         }
 
         // Containers

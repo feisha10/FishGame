@@ -128,6 +128,15 @@ namespace UnityEditor.UI
                     {
                         m_Type.enumValueIndex = (int)Image.Type.Simple;
                     }
+
+                    string spritePath = AssetDatabase.GetAssetPath(newSprite);
+                    if (spritePath.Contains("ResourcesLib/AtlasResource/") == false)
+                    {
+                        Debug.LogError("choose pic Error! ples choose ResourcesLib/AtlasResource/");
+                        newSprite = null;
+                        m_Sprite.objectReferenceValue = null;
+                        return;
+                    }
                 }
             }
         }
