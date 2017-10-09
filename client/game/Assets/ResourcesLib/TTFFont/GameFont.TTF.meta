@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 6664a474d227dde4d8692b85bcc01680
+timeCreated: 1506398147
+licenseType: Pro
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: HYZhongYuanJ
+  fontNames:
+  - HYZhongYuanJ
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
