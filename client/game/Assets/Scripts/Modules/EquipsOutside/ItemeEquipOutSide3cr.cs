@@ -26,19 +26,19 @@ public class ItemeEquipOutSide3cr :BaseItemRender
 	{
 		cachedTransform=transform;
 		//开始UI获取;
-		image_Equipcr = cachedTransform.FindChild("image_Equipcr").GetComponent<Image>();
-		Image_skill1cr = cachedTransform.FindChild("image_Equipcr/Image_skill1cr").GetComponent<Image>();
-		Scr_EquipStarcr = cachedTransform.FindChild("image_Equipcr/Scr_EquipStarcr").GetComponent<ScrollRect>();
-		glayout_EquipStarcr = cachedTransform.FindChild("image_Equipcr/Scr_EquipStarcr/glayout_EquipStarcr").GetComponent<GridLayoutGroup>();
-		image_Selectedcr = cachedTransform.FindChild("image_Equipcr/image_Selectedcr").GetComponent<Image>();
-		image_EquipLineLinecr = cachedTransform.FindChild("image_EquipLineLinecr").GetComponent<Image>();
-		image_EquipLineTopcr = cachedTransform.FindChild("image_EquipLineTopcr").GetComponent<Image>();
-		image_EquipLineBottomcr = cachedTransform.FindChild("image_EquipLineBottomcr").GetComponent<Image>();
+		image_Equipcr = cachedTransform.Find("image_Equipcr").GetComponent<Image>();
+		Image_skill1cr = cachedTransform.Find("image_Equipcr/Image_skill1cr").GetComponent<Image>();
+		Scr_EquipStarcr = cachedTransform.Find("image_Equipcr/Scr_EquipStarcr").GetComponent<ScrollRect>();
+		glayout_EquipStarcr = cachedTransform.Find("image_Equipcr/Scr_EquipStarcr/glayout_EquipStarcr").GetComponent<GridLayoutGroup>();
+		image_Selectedcr = cachedTransform.Find("image_Equipcr/image_Selectedcr").GetComponent<Image>();
+		image_EquipLineLinecr = cachedTransform.Find("image_EquipLineLinecr").GetComponent<Image>();
+		image_EquipLineTopcr = cachedTransform.Find("image_EquipLineTopcr").GetComponent<Image>();
+		image_EquipLineBottomcr = cachedTransform.Find("image_EquipLineBottomcr").GetComponent<Image>();
 		//结束UI获取;
 		isUIinit = true;
 
         star = glayout_EquipStarcr.gameObject.AddMissingComponent<UIDataGrid>();
-        star.InitDataGrid("prefab/UI/Equip/ItemeEquipStarcr", "ItemeEquipStarcr", star.gameObject, null, CommonEnum.Direction.none);
+        star.InitDataGrid("prefab/UI/Equip/ItemeEquipStarcr", "ItemeEquipStarcr", star.gameObject, null, Direction.none);
 
         UGUIClickHandler.Get(Image_skill1cr.gameObject).onPointerClick = OnClickJO;
 	}
@@ -61,7 +61,7 @@ public class ItemeEquipOutSide3cr :BaseItemRender
 
         _equip = data as ConfigEquip;
 
-        Image_skill1cr.SetSprite(_equip.AtalsName, _equip.picName);
+        //Image_skill1cr.SetSprite(_equip.AtalsName, _equip.picName);
 
         string[] arr = new string[_equip.leve];
         star.DataProvider = arr;

@@ -26,13 +26,13 @@ public class ItemeEquipOutSideChoose2cr :BaseItemRender
 	{
 		cachedTransform=transform;
 		//开始UI获取;
-		image_Equipcr = cachedTransform.FindChild("image_Equipcr").GetComponent<Image>();
-		Scr_EquipStarcr = cachedTransform.FindChild("image_Equipcr/Scr_EquipStarcr").GetComponent<ScrollRect>();
-		glayout_EquipStarcr = cachedTransform.FindChild("image_Equipcr/Scr_EquipStarcr/glayout_EquipStarcr").GetComponent<GridLayoutGroup>();
-		image_Selectedcr = cachedTransform.FindChild("image_Equipcr/image_Selectedcr").GetComponent<Image>();
-		btn_Fillcr = cachedTransform.FindChild("image_Equipcr/btn_Fillcr").GetComponent<Button>();
-		Image_skill1cr = cachedTransform.FindChild("image_Equipcr/Image_skill1cr").GetComponent<Image>();
-		btn_Closedcr = cachedTransform.FindChild("btn_Closedcr").GetComponent<Button>();
+		image_Equipcr = cachedTransform.Find("image_Equipcr").GetComponent<Image>();
+		Scr_EquipStarcr = cachedTransform.Find("image_Equipcr/Scr_EquipStarcr").GetComponent<ScrollRect>();
+		glayout_EquipStarcr = cachedTransform.Find("image_Equipcr/Scr_EquipStarcr/glayout_EquipStarcr").GetComponent<GridLayoutGroup>();
+		image_Selectedcr = cachedTransform.Find("image_Equipcr/image_Selectedcr").GetComponent<Image>();
+		btn_Fillcr = cachedTransform.Find("image_Equipcr/btn_Fillcr").GetComponent<Button>();
+		Image_skill1cr = cachedTransform.Find("image_Equipcr/Image_skill1cr").GetComponent<Image>();
+		btn_Closedcr = cachedTransform.Find("btn_Closedcr").GetComponent<Button>();
 		//结束UI获取;
 		isUIinit = true;
 
@@ -43,7 +43,7 @@ public class ItemeEquipOutSideChoose2cr :BaseItemRender
         UIEventListener.Get(btn_Fillcr.gameObject).onClick = OnFillClick;
 
         _grid = glayout_EquipStarcr.gameObject.AddComponent<UIDataGrid>();
-        _grid.InitDataGrid("prefab/UI/Equip/ItemeEquipStarcr", "ItemeEquipStarcr", glayout_EquipStarcr.gameObject, Scr_EquipStarcr, CommonEnum.Direction.none);
+        _grid.InitDataGrid("prefab/UI/Equip/ItemeEquipStarcr", "ItemeEquipStarcr", glayout_EquipStarcr.gameObject, Scr_EquipStarcr, Direction.none);
 	}
 
     void OnClickJO(GameObject go)
@@ -64,7 +64,7 @@ public class ItemeEquipOutSideChoose2cr :BaseItemRender
         ItemeEquipOutSidecr item = EquipsOutsideView.Instance.GetSelectClickItem();
         if(item==null)
         {
-            TipManager.Instance.ShowTip("请选择要放进的装备",ColorEnum.White);
+            //TipManager.Instance.ShowTip("请选择要放进的装备",ColorEnum.White);
         }
         else
         {
@@ -146,7 +146,7 @@ public class ItemeEquipOutSideChoose2cr :BaseItemRender
         btn_Fillcr.gameObject.SetActive(false);
         if (_equip!=null)
         {
-            Image_skill1cr.SetSprite(_equip.AtalsName, _equip.picName);
+           // Image_skill1cr.SetSprite(_equip.AtalsName, _equip.picName);
             Image_skill1cr.gameObject.SetActive(true);
             string[] arr = new string[_equip.leve];
             _grid.DataProvider = arr;

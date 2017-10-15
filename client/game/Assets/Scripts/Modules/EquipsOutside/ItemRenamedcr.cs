@@ -25,18 +25,16 @@ public class ItemRenamedcr : SingletonMonoBehaviour<ItemRenamedcr>
         base.Awake();
 		cachedTransform=transform;
 		//开始UI获取;
-		btn_Surecr = cachedTransform.FindChild("image_Buttom2/btn_Surecr").GetComponent<Button>();
-		image_Buttom1cr = cachedTransform.FindChild("image_Buttom1cr").GetComponent<Image>();
-		text_Alertcr = cachedTransform.FindChild("image_Buttom1cr/text_Alertcr").GetComponent<Text>();
-		input_Applymsgcr = cachedTransform.FindChild("image_Buttom1cr/input_Applymsgcr").GetComponent<InputField>();
-		btn_Closecr = cachedTransform.FindChild("btn_Closecr").GetComponent<Button>();
+		btn_Surecr = cachedTransform.Find("image_Buttom2/btn_Surecr").GetComponent<Button>();
+		image_Buttom1cr = cachedTransform.Find("image_Buttom1cr").GetComponent<Image>();
+		text_Alertcr = cachedTransform.Find("image_Buttom1cr/text_Alertcr").GetComponent<Text>();
+		input_Applymsgcr = cachedTransform.Find("image_Buttom1cr/input_Applymsgcr").GetComponent<InputField>();
+		btn_Closecr = cachedTransform.Find("btn_Closecr").GetComponent<Button>();
 		//结束UI获取;
 		isUIinit = true;
 
         UIEventListener.Get(btn_Closecr.gameObject).onClick = OnBtnExitClick;
         UIEventListener.Get(btn_Surecr.gameObject).onClick = OnSureClick;
-
-        _iosCharacterLimit = BundleIdUtil.CheckIosInput(input_Applymsgcr, OnCheckName);
 	}
 
     private void OnCheckName(string name)
@@ -56,7 +54,7 @@ public class ItemRenamedcr : SingletonMonoBehaviour<ItemRenamedcr>
     {
         if(string.IsNullOrEmpty(input_Applymsgcr.text))
         {
-            TipManager.Instance.ShowTip("名字不能为空",ColorEnum.White);
+           // TipManager.Instance.ShowTip("名字不能为空",ColorEnum.White);
         }
         else
         {
@@ -64,7 +62,7 @@ public class ItemRenamedcr : SingletonMonoBehaviour<ItemRenamedcr>
             info.plan_id = _planid;
             info.plan_name = input_Applymsgcr.text;
 
-            RoleModel.Instance.TosChangeEquip(EquipsOutsideView.Instance.ChooseHeroType, info, 3);
+           // RoleModel.Instance.TosChangeEquip(EquipsOutsideView.Instance.ChooseHeroType, info, 3);
 
             OnBtnExitClick(null);
         }

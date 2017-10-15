@@ -7,7 +7,6 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 using Object = UnityEngine.Object;
-using System.Diagnostics;
 using Debug = UnityEngine.Debug;
 
 public static class UIPlugin
@@ -732,22 +731,22 @@ public static class UIPlugin
                {
                    case "go":
                        controlUiDeclaraStr += string.Format("{0}private {1} {2};{3}", "\t", "GameObject", parent.name, "\r\n");
-                       controlUiGetStr += string.Format("{0}{0}{1} = cachedTransform.FindChild(\"{2}\").gameObject;{3}", "\t", parent.name, string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name)), "\r\n");
+                       controlUiGetStr += string.Format("{0}{0}{1} = cachedTransform.Find(\"{2}\").gameObject;{3}", "\t", parent.name, string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name)), "\r\n");
                        break;
                    case "text":
                        controlUiDeclaraStr += string.Format("{0}private {1} {2};{3}", "\t", "Text", parent.name, "\r\n");
-                       controlUiGetStr += string.Format("{0}{0}{1} = cachedTransform.FindChild(\"{2}\").GetComponent<Text>();{3}", "\t", parent.name, string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name)), "\r\n");
+                       controlUiGetStr += string.Format("{0}{0}{1} = cachedTransform.Find(\"{2}\").GetComponent<Text>();{3}", "\t", parent.name, string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name)), "\r\n");
                        break;
                    case "btn":
                        controlUiDeclaraStr += string.Format("{0}private {1} {2};{3}", "\t", "Button", parent.name, "\r\n");
-                       controlUiGetStr += string.Format("{0}{0}{1} = cachedTransform.FindChild(\"{2}\").GetComponent<Button>();{3}", "\t", parent.name, string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name)), "\r\n");
+                       controlUiGetStr += string.Format("{0}{0}{1} = cachedTransform.Find(\"{2}\").GetComponent<Button>();{3}", "\t", parent.name, string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name)), "\r\n");
                        break;
                    case "image":
                        Image image = parent.GetComponent<Image>();
                        if (image.material.mainTexture == null)
                            Log.Error(orialNameShow+orialNameShow + parent + "贴图没有设置对用的mat存在错误请检查");
                        controlUiDeclaraStr += string.Format("{0}private {1} {2};{3}", "\t", "Image", parent.name, "\r\n");
-                       controlUiGetStr += string.Format("{0}{0}{1} = cachedTransform.FindChild(\"{2}\").GetComponent<Image>();{3}", "\t", parent.name, string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name)), "\r\n");
+                       controlUiGetStr += string.Format("{0}{0}{1} = cachedTransform.Find(\"{2}\").GetComponent<Image>();{3}", "\t", parent.name, string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name)), "\r\n");
                        break;
                    case "rawi":
                         RawImage raimage = parent.GetComponent<RawImage>();
@@ -767,49 +766,49 @@ public static class UIPlugin
                            // EditorUtility.SetDirty(raimage.gameObject);
                         }
                         controlUiDeclaraStr += string.Format("{0}private {1} {2};{3}", "\t", "RawImage", parent.name, "\r\n");
-                       controlUiGetStr += string.Format("{0}{0}{1} = cachedTransform.FindChild(\"{2}\").GetComponent<RawImage>();{3}", "\t", parent.name, string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name)), "\r\n"); 
+                       controlUiGetStr += string.Format("{0}{0}{1} = cachedTransform.Find(\"{2}\").GetComponent<RawImage>();{3}", "\t", parent.name, string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name)), "\r\n"); 
                        break;
                    case "tog":
                        controlUiDeclaraStr += string.Format("{0}private {1} {2};{3}", "\t", "Toggle", parent.name, "\r\n");
-                       controlUiGetStr += string.Format("{0}{0}{1} = cachedTransform.FindChild(\"{2}\").GetComponent<Toggle>();{3}", "\t", parent.name, string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name)), "\r\n");
+                       controlUiGetStr += string.Format("{0}{0}{1} = cachedTransform.Find(\"{2}\").GetComponent<Toggle>();{3}", "\t", parent.name, string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name)), "\r\n");
                        break;
                    case "toggroup":
                        controlUiDeclaraStr += string.Format("{0}private {1} {2};{3}", "\t", "ToggleGroup", parent.name, "\r\n");
-                       controlUiGetStr += string.Format("{0}{0}{1} = cachedTransform.FindChild(\"{2}\").GetComponent<ToggleGroup>();{3}", "\t", parent.name, string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name)), "\r\n");
+                       controlUiGetStr += string.Format("{0}{0}{1} = cachedTransform.Find(\"{2}\").GetComponent<ToggleGroup>();{3}", "\t", parent.name, string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name)), "\r\n");
                        break;
                    case "scr":
                        controlUiDeclaraStr += string.Format("{0}private {1} {2};{3}", "\t", "ScrollRect", parent.name, "\r\n");
-                       controlUiGetStr += string.Format("{0}{0}{1} = cachedTransform.FindChild(\"{2}\").GetComponent<ScrollRect>();{3}", "\t", parent.name, string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name)), "\r\n");
+                       controlUiGetStr += string.Format("{0}{0}{1} = cachedTransform.Find(\"{2}\").GetComponent<ScrollRect>();{3}", "\t", parent.name, string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name)), "\r\n");
                        break;
                    case "glayout":
                         ToggleGroup group= parent.GetComponent<ToggleGroup>();
                         if(group!=null)
                         {
                             controlUiDeclaraStr += string.Format("{0}private {1} {2};{3}", "\t", "ToggleGroup", parent.name.Replace("glayout", "toggroup"), "\r\n");
-                            controlUiGetStr += string.Format("{0}{0}{1} = cachedTransform.FindChild(\"{2}\").GetComponent<ToggleGroup>();{3}", "\t", parent.name.Replace("glayout", "toggroup"), string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name)), "\r\n");
+                            controlUiGetStr += string.Format("{0}{0}{1} = cachedTransform.Find(\"{2}\").GetComponent<ToggleGroup>();{3}", "\t", parent.name.Replace("glayout", "toggroup"), string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name)), "\r\n");
                         }
                         controlUiDeclaraStr += string.Format("{0}private {1} {2};{3}", "\t", "GridLayoutGroup", parent.name, "\r\n");
-                       controlUiGetStr += string.Format("{0}{0}{1} = cachedTransform.FindChild(\"{2}\").GetComponent<GridLayoutGroup>();{3}", "\t", parent.name, string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name)), "\r\n");
+                       controlUiGetStr += string.Format("{0}{0}{1} = cachedTransform.Find(\"{2}\").GetComponent<GridLayoutGroup>();{3}", "\t", parent.name, string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name)), "\r\n");
                        break;
                    case "slider":
                        controlUiDeclaraStr += string.Format("{0}private {1} {2};{3}", "\t", "Slider", parent.name, "\r\n");
-                       controlUiGetStr += string.Format("{0}{0}{1} = cachedTransform.FindChild(\"{2}\").GetComponent<Slider>();{3}", "\t", parent.name, string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name)), "\r\n");
+                       controlUiGetStr += string.Format("{0}{0}{1} = cachedTransform.Find(\"{2}\").GetComponent<Slider>();{3}", "\t", parent.name, string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name)), "\r\n");
                        break;
                    case "input":
                        controlUiDeclaraStr += string.Format("{0}private {1} {2};{3}", "\t", "InputField", parent.name, "\r\n");
-                       controlUiGetStr += string.Format("{0}{0}{1} = cachedTransform.FindChild(\"{2}\").GetComponent<InputField>();{3}", "\t", parent.name, string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name)), "\r\n");
+                       controlUiGetStr += string.Format("{0}{0}{1} = cachedTransform.Find(\"{2}\").GetComponent<InputField>();{3}", "\t", parent.name, string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name)), "\r\n");
                        break;
                    case "canvas":
                        controlUiDeclaraStr += string.Format("{0}private {1} {2};{3}", "\t", "Canvas", parent.name, "\r\n");
-                       controlUiGetStr += string.Format("{0}{0}{1} = cachedTransform.FindChild(\"{2}\").GetComponent<Canvas>();{3}", "\t", parent.name, string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name)), "\r\n");
+                       controlUiGetStr += string.Format("{0}{0}{1} = cachedTransform.Find(\"{2}\").GetComponent<Canvas>();{3}", "\t", parent.name, string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name)), "\r\n");
                        break;
                    case "dropdown":
                        controlUiDeclaraStr += string.Format("{0}private {1} {2};{3}", "\t", "Dropdown", parent.name, "\r\n");
-                       controlUiGetStr += string.Format("{0}{0}{1} = cachedTransform.FindChild(\"{2}\").GetComponent<Dropdown>();{3}", "\t", parent.name, string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name)), "\r\n");
+                       controlUiGetStr += string.Format("{0}{0}{1} = cachedTransform.Find(\"{2}\").GetComponent<Dropdown>();{3}", "\t", parent.name, string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name)), "\r\n");
                        break;
                    case "scrollbar":
                        controlUiDeclaraStr += string.Format("{0}private {1} {2};{3}", "\t", "Scrollbar", parent.name, "\r\n");
-                       controlUiGetStr += string.Format("{0}{0}{1} = cachedTransform.FindChild(\"{2}\").GetComponent<Scrollbar>();{3}", "\t", parent.name, string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name)), "\r\n");
+                       controlUiGetStr += string.Format("{0}{0}{1} = cachedTransform.Find(\"{2}\").GetComponent<Scrollbar>();{3}", "\t", parent.name, string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name)), "\r\n");
                        break;
 
                }
@@ -822,16 +821,16 @@ public static class UIPlugin
                     {
                         case "go":
                             controlUiDeclaraStrDic.Add(parent.name, string.Format("{0}private {1} {2};", "\t", "GameObject", parent.name));
-                            controlUiGetStrDic.Add(parent.name, string.Format("{0}{0}{1} = cachedTransform.FindChild(\"{2}\").gameObject;", "\t", parent.name, string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name))));
+                            controlUiGetStrDic.Add(parent.name, string.Format("{0}{0}{1} = cachedTransform.Find(\"{2}\").gameObject;", "\t", parent.name, string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name))));
 
                             break;
                         case "text":
                             controlUiDeclaraStrDic.Add(parent.name, string.Format("{0}private {1} {2};", "\t", "Text", parent.name));
-                            controlUiGetStrDic.Add(parent.name, string.Format("{0}{0}{1} = cachedTransform.FindChild(\"{2}\").GetComponent<Text>();", "\t", parent.name, string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name))));
+                            controlUiGetStrDic.Add(parent.name, string.Format("{0}{0}{1} = cachedTransform.Find(\"{2}\").GetComponent<Text>();", "\t", parent.name, string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name))));
                             break;
                         case "btn":
                             controlUiDeclaraStrDic.Add(parent.name, string.Format("{0}private {1} {2};", "\t", "Button", parent.name));
-                            controlUiGetStrDic.Add(parent.name, string.Format("{0}{0}{1} = cachedTransform.FindChild(\"{2}\").GetComponent<Button>();", "\t", parent.name, string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name))));
+                            controlUiGetStrDic.Add(parent.name, string.Format("{0}{0}{1} = cachedTransform.Find(\"{2}\").GetComponent<Button>();", "\t", parent.name, string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name))));
 
                             break;
                         case "image":
@@ -839,7 +838,7 @@ public static class UIPlugin
                             if (image.material.mainTexture == null)
                                 Log.Error(orialNameShow+parentOrialName + parent + "贴图没有设置对用的mat存在错误请检查");
                             controlUiDeclaraStrDic.Add(parent.name, string.Format("{0}private {1} {2};", "\t", "Image", parent.name));
-                            controlUiGetStrDic.Add(parent.name, string.Format("{0}{0}{1} = cachedTransform.FindChild(\"{2}\").GetComponent<Image>();", "\t", parent.name, string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name))));
+                            controlUiGetStrDic.Add(parent.name, string.Format("{0}{0}{1} = cachedTransform.Find(\"{2}\").GetComponent<Image>();", "\t", parent.name, string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name))));
 
                             break;
                         case "rawi":
@@ -860,23 +859,23 @@ public static class UIPlugin
                                 //EditorUtility.SetDirty(raimage.gameObject);
                             }
                             controlUiDeclaraStrDic.Add(parent.name, string.Format("{0}private {1} {2};", "\t", "RawImage", parent.name));
-                            controlUiGetStrDic.Add(parent.name, string.Format("{0}{0}{1} = cachedTransform.FindChild(\"{2}\").GetComponent<RawImage>();", "\t", parent.name, string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name))));
+                            controlUiGetStrDic.Add(parent.name, string.Format("{0}{0}{1} = cachedTransform.Find(\"{2}\").GetComponent<RawImage>();", "\t", parent.name, string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name))));
 
                             break;
                         case "tog":
                             controlUiDeclaraStrDic.Add(parent.name, string.Format("{0}private {1} {2};", "\t", "Toggle", parent.name));
-                            controlUiGetStrDic.Add(parent.name, string.Format("{0}{0}{1} = cachedTransform.FindChild(\"{2}\").GetComponent<Toggle>();", "\t", parent.name, string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name))));
+                            controlUiGetStrDic.Add(parent.name, string.Format("{0}{0}{1} = cachedTransform.Find(\"{2}\").GetComponent<Toggle>();", "\t", parent.name, string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name))));
 
                             break;
                         case "toggroup":
                            
                             controlUiDeclaraStrDic.Add(parent.name, string.Format("{0}private {1} {2};", "\t", "ToggleGroup", parent.name));
-                            controlUiGetStrDic.Add(parent.name, string.Format("{0}{0}{1} = cachedTransform.FindChild(\"{2}\").GetComponent<ToggleGroup>();", "\t", parent.name, string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name))));
+                            controlUiGetStrDic.Add(parent.name, string.Format("{0}{0}{1} = cachedTransform.Find(\"{2}\").GetComponent<ToggleGroup>();", "\t", parent.name, string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name))));
 
                             break;
                         case "scr":
                             controlUiDeclaraStrDic.Add(parent.name, string.Format("{0}private {1} {2};", "\t", "ScrollRect", parent.name));
-                            controlUiGetStrDic.Add(parent.name, string.Format("{0}{0}{1} = cachedTransform.FindChild(\"{2}\").GetComponent<ScrollRect>();", "\t", parent.name, string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name))));
+                            controlUiGetStrDic.Add(parent.name, string.Format("{0}{0}{1} = cachedTransform.Find(\"{2}\").GetComponent<ScrollRect>();", "\t", parent.name, string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name))));
 
                             break;
                         case "glayout":
@@ -884,34 +883,34 @@ public static class UIPlugin
                             if (group != null)
                             {
                                 controlUiDeclaraStrDic.Add(parent.name.Replace("glayout", "toggroup"), string.Format("{0}private {1} {2};", "\t", "ToggleGroup", parent.name.Replace("glayout", "toggroup")));
-                                controlUiGetStrDic.Add(parent.name.Replace("glayout", "toggroup"), string.Format("{0}{0}{1} = cachedTransform.FindChild(\"{2}\").GetComponent<ToggleGroup>();", "\t", parent.name.Replace("glayout", "toggroup"), string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name))));
+                                controlUiGetStrDic.Add(parent.name.Replace("glayout", "toggroup"), string.Format("{0}{0}{1} = cachedTransform.Find(\"{2}\").GetComponent<ToggleGroup>();", "\t", parent.name.Replace("glayout", "toggroup"), string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name))));
                             }
                             controlUiDeclaraStrDic.Add(parent.name, string.Format("{0}private {1} {2};", "\t", "GridLayoutGroup", parent.name));
-                            controlUiGetStrDic.Add(parent.name, string.Format("{0}{0}{1} = cachedTransform.FindChild(\"{2}\").GetComponent<GridLayoutGroup>();", "\t", parent.name, string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name))));
+                            controlUiGetStrDic.Add(parent.name, string.Format("{0}{0}{1} = cachedTransform.Find(\"{2}\").GetComponent<GridLayoutGroup>();", "\t", parent.name, string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name))));
 
                             break;
                         case "slider":
                             controlUiDeclaraStrDic.Add(parent.name, string.Format("{0}private {1} {2};", "\t", "Slider", parent.name));
-                            controlUiGetStrDic.Add(parent.name, string.Format("{0}{0}{1} = cachedTransform.FindChild(\"{2}\").GetComponent<Slider>();", "\t", parent.name, string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name))));
+                            controlUiGetStrDic.Add(parent.name, string.Format("{0}{0}{1} = cachedTransform.Find(\"{2}\").GetComponent<Slider>();", "\t", parent.name, string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name))));
 
                             break;
                         case "input":
                             controlUiDeclaraStrDic.Add(parent.name, string.Format("{0}private {1} {2};", "\t", "InputField", parent.name));
-                            controlUiGetStrDic.Add(parent.name, string.Format("{0}{0}{1} = cachedTransform.FindChild(\"{2}\").GetComponent<InputField>();", "\t", parent.name, string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name))));
+                            controlUiGetStrDic.Add(parent.name, string.Format("{0}{0}{1} = cachedTransform.Find(\"{2}\").GetComponent<InputField>();", "\t", parent.name, string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name))));
 
                             break;
                         case "canvas":
                             controlUiDeclaraStrDic.Add(parent.name, string.Format("{0}private {1} {2};", "\t", "Canvas", parent.name));
-                            controlUiGetStrDic.Add(parent.name, string.Format("{0}{0}{1} = cachedTransform.FindChild(\"{2}\").GetComponent<Canvas>();", "\t", parent.name, string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name))));
+                            controlUiGetStrDic.Add(parent.name, string.Format("{0}{0}{1} = cachedTransform.Find(\"{2}\").GetComponent<Canvas>();", "\t", parent.name, string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name))));
                             break;
                         case "dropdown":
                             controlUiDeclaraStrDic.Add(parent.name, string.Format("{0}private {1} {2};", "\t", "Dropdown", parent.name));
-                            controlUiGetStrDic.Add(parent.name, string.Format("{0}{0}{1} = cachedTransform.FindChild(\"{2}\").GetComponent<Dropdown>();", "\t", parent.name, string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name))));
+                            controlUiGetStrDic.Add(parent.name, string.Format("{0}{0}{1} = cachedTransform.Find(\"{2}\").GetComponent<Dropdown>();", "\t", parent.name, string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name))));
 
                             break;
                         case "scrollbar":
                             controlUiDeclaraStrDic.Add(parent.name, string.Format("{0}private {1} {2};", "\t", "Scrollbar", parent.name));
-                            controlUiGetStrDic.Add(parent.name, string.Format("{0}{0}{1} = cachedTransform.FindChild(\"{2}\").GetComponent<Scrollbar>();", "\t", parent.name, string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name))));
+                            controlUiGetStrDic.Add(parent.name, string.Format("{0}{0}{1} = cachedTransform.Find(\"{2}\").GetComponent<Scrollbar>();", "\t", parent.name, string.IsNullOrEmpty(parentOrialName) ? parent.name : (string.Format("{0}/{1}", parentOrialName, parent.name))));
                             break;
 
                     }

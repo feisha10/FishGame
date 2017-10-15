@@ -14,8 +14,7 @@ public class EquipsOutsideViewBeforeLoad : PanelBase
 	}
 	public string[] BeforLoadTextures()
 	{
-		 string[] backs = new string[] {"textures/etcimage/bg_battle_reward.assetbundle"};
-		return backs;
+		return null;
 	}
 	 //endTexture
 }
@@ -90,48 +89,47 @@ public class EquipsOutsideView : SingletonMonoBehaviour<EquipsOutsideView>
 		base.Awake();
 		cachedTransform=transform;
 		//开始UI获取;
-		rawI_EquipBottomcr = cachedTransform.FindChild("rawI_EquipBottomcr").GetComponent<RawImage>();
-		go_EquipListcr = cachedTransform.FindChild("go_EquipListcr").gameObject;
-		Scr_EquipListcr = cachedTransform.FindChild("go_EquipListcr/Scr_EquipListcr").GetComponent<ScrollRect>();
-		go_contentcr = cachedTransform.FindChild("go_EquipListcr/Scr_EquipListcr/go_contentcr").gameObject;
-		glayout_EquipList1cr = cachedTransform.FindChild("go_EquipListcr/Scr_EquipListcr/go_contentcr/glayout_EquipList1cr").GetComponent<GridLayoutGroup>();
-		glayout_EquipList2cr = cachedTransform.FindChild("go_EquipListcr/Scr_EquipListcr/go_contentcr/glayout_EquipList2cr").GetComponent<GridLayoutGroup>();
-		glayout_EquipList3cr = cachedTransform.FindChild("go_EquipListcr/Scr_EquipListcr/go_contentcr/glayout_EquipList3cr").GetComponent<GridLayoutGroup>();
-		scrollbar_Applycr = cachedTransform.FindChild("go_EquipListcr/Scr_EquipListcr/scrollbar_Applycr").GetComponent<Scrollbar>();
-		btn_Homecr = cachedTransform.FindChild("go_topright/go_TopImformation/btn_Homecr").GetComponent<Button>();
-		btn_Replycr = cachedTransform.FindChild("go_bottomright/btn_Replycr").GetComponent<Button>();
-		go_MyEquipBarcr = cachedTransform.FindChild("go_bottomright/go_MyEquipBarcr").gameObject;
-		Scr_MyEquipBarcr = cachedTransform.FindChild("go_bottomright/go_MyEquipBarcr/Scr_MyEquipBarcr").GetComponent<ScrollRect>();
-		glayout_EquipListcr = cachedTransform.FindChild("go_bottomright/go_MyEquipBarcr/Scr_MyEquipBarcr/glayout_EquipListcr").GetComponent<GridLayoutGroup>();
-		btn_Modifycr = cachedTransform.FindChild("go_bottomright/btn_Modifycr").GetComponent<Button>();
-		btn_Renamedecr = cachedTransform.FindChild("go_bottomright/btn_Renamedecr").GetComponent<Button>();
-		image_Herocr = cachedTransform.FindChild("go_bottomright/go_ChangeHero/image_Herocr").GetComponent<Image>();
-		btn_ChangeHerocr = cachedTransform.FindChild("go_bottomright/go_ChangeHero/btn_ChangeHerocr").GetComponent<Button>();
-		btn_Cancelcr = cachedTransform.FindChild("go_bottomright/btn_Cancelcr").GetComponent<Button>();
-		btn_Surecr = cachedTransform.FindChild("go_bottomright/btn_Surecr").GetComponent<Button>();
-		btn_EquipSchemecr = cachedTransform.FindChild("go_bottomright/btn_EquipSchemecr").GetComponent<Button>();
-		togGroup_EquipBtnListcr = cachedTransform.FindChild("go_leftcenter/togGroup_EquipBtnListcr").GetComponent<ToggleGroup>();
-		text_AttackTogcr = cachedTransform.FindChild("go_leftcenter/togGroup_EquipBtnListcr/Attack/text_AttackTogcr").GetComponent<Text>();
-		text_LiveTogcr = cachedTransform.FindChild("go_leftcenter/togGroup_EquipBtnListcr/Live/text_LiveTogcr").GetComponent<Text>();
-		text_MoveTogcr = cachedTransform.FindChild("go_leftcenter/togGroup_EquipBtnListcr/Move/text_MoveTogcr").GetComponent<Text>();
-		go_rightcentercr = cachedTransform.FindChild("go_rightcentercr").gameObject;
-		Scr_ContentcrTextcr = cachedTransform.FindChild("go_rightcentercr/Scr_ContentcrTextcr").GetComponent<ScrollRect>();
-		Text_contcr = cachedTransform.FindChild("go_rightcentercr/Scr_ContentcrTextcr/Content/Text_contcr").GetComponent<Text>();
-		text_Namecr = cachedTransform.FindChild("go_rightcentercr/Scr_ContentcrTextcr/text_Namecr").GetComponent<Text>();
-		btn_Synthesiscr = cachedTransform.FindChild("go_rightcentercr/btn_Synthesiscr").GetComponent<Button>();
-		go_EquipSynthesiscr = cachedTransform.FindChild("go_EquipSynthesiscr").gameObject;
-		btn_Closedcr = cachedTransform.FindChild("go_EquipSynthesiscr/btn_Closedcr").GetComponent<Button>();
-		Scr_ContentcrText2cr = cachedTransform.FindChild("go_EquipSynthesiscr/go_rightcenter2/Scr_ContentcrText2cr").GetComponent<ScrollRect>();
-		Text_cont2cr = cachedTransform.FindChild("go_EquipSynthesiscr/go_rightcenter2/Scr_ContentcrText2cr/Content/Text_cont2cr").GetComponent<Text>();
-		text_Name2cr = cachedTransform.FindChild("go_EquipSynthesiscr/go_rightcenter2/Scr_ContentcrText2cr/Content/text_Name2cr").GetComponent<Text>();
-		text_Rricecr = cachedTransform.FindChild("go_EquipSynthesiscr/go_rightcenter2/text_Rricecr").GetComponent<Text>();
-		Scr_CanSynthesisEquipcr = cachedTransform.FindChild("go_EquipSynthesiscr/go_topleft2/image_CanSybottom/Scr_CanSynthesisEquipcr").GetComponent<ScrollRect>();
-		glayout_CanSynthesisEquipcr = cachedTransform.FindChild("go_EquipSynthesiscr/go_topleft2/image_CanSybottom/Scr_CanSynthesisEquipcr/glayout_CanSynthesisEquipcr").GetComponent<GridLayoutGroup>();
-		btn_leftcr = cachedTransform.FindChild("go_EquipSynthesiscr/go_topleft2/image_CanSybottom/btn_leftcr").GetComponent<Button>();
-		btn_rightcr = cachedTransform.FindChild("go_EquipSynthesiscr/go_topleft2/image_CanSybottom/btn_rightcr").GetComponent<Button>();
+		rawI_EquipBottomcr = cachedTransform.Find("rawI_EquipBottomcr").GetComponent<RawImage>();
+		go_EquipListcr = cachedTransform.Find("go_EquipListcr").gameObject;
+		Scr_EquipListcr = cachedTransform.Find("go_EquipListcr/Scr_EquipListcr").GetComponent<ScrollRect>();
+		go_contentcr = cachedTransform.Find("go_EquipListcr/Scr_EquipListcr/go_contentcr").gameObject;
+		glayout_EquipList1cr = cachedTransform.Find("go_EquipListcr/Scr_EquipListcr/go_contentcr/glayout_EquipList1cr").GetComponent<GridLayoutGroup>();
+		glayout_EquipList2cr = cachedTransform.Find("go_EquipListcr/Scr_EquipListcr/go_contentcr/glayout_EquipList2cr").GetComponent<GridLayoutGroup>();
+		glayout_EquipList3cr = cachedTransform.Find("go_EquipListcr/Scr_EquipListcr/go_contentcr/glayout_EquipList3cr").GetComponent<GridLayoutGroup>();
+		scrollbar_Applycr = cachedTransform.Find("go_EquipListcr/Scr_EquipListcr/scrollbar_Applycr").GetComponent<Scrollbar>();
+		btn_Homecr = cachedTransform.Find("go_topright/go_TopImformation/btn_Homecr").GetComponent<Button>();
+		btn_Replycr = cachedTransform.Find("go_bottomright/btn_Replycr").GetComponent<Button>();
+		go_MyEquipBarcr = cachedTransform.Find("go_bottomright/go_MyEquipBarcr").gameObject;
+		Scr_MyEquipBarcr = cachedTransform.Find("go_bottomright/go_MyEquipBarcr/Scr_MyEquipBarcr").GetComponent<ScrollRect>();
+		glayout_EquipListcr = cachedTransform.Find("go_bottomright/go_MyEquipBarcr/Scr_MyEquipBarcr/glayout_EquipListcr").GetComponent<GridLayoutGroup>();
+		btn_Modifycr = cachedTransform.Find("go_bottomright/btn_Modifycr").GetComponent<Button>();
+		btn_Renamedecr = cachedTransform.Find("go_bottomright/btn_Renamedecr").GetComponent<Button>();
+		image_Herocr = cachedTransform.Find("go_bottomright/go_ChangeHero/image_Herocr").GetComponent<Image>();
+		btn_ChangeHerocr = cachedTransform.Find("go_bottomright/go_ChangeHero/btn_ChangeHerocr").GetComponent<Button>();
+		btn_Cancelcr = cachedTransform.Find("go_bottomright/btn_Cancelcr").GetComponent<Button>();
+		btn_Surecr = cachedTransform.Find("go_bottomright/btn_Surecr").GetComponent<Button>();
+		btn_EquipSchemecr = cachedTransform.Find("go_bottomright/btn_EquipSchemecr").GetComponent<Button>();
+		togGroup_EquipBtnListcr = cachedTransform.Find("go_leftcenter/togGroup_EquipBtnListcr").GetComponent<ToggleGroup>();
+		text_AttackTogcr = cachedTransform.Find("go_leftcenter/togGroup_EquipBtnListcr/Attack/text_AttackTogcr").GetComponent<Text>();
+		text_LiveTogcr = cachedTransform.Find("go_leftcenter/togGroup_EquipBtnListcr/Live/text_LiveTogcr").GetComponent<Text>();
+		text_MoveTogcr = cachedTransform.Find("go_leftcenter/togGroup_EquipBtnListcr/Move/text_MoveTogcr").GetComponent<Text>();
+		go_rightcentercr = cachedTransform.Find("go_rightcentercr").gameObject;
+		Scr_ContentcrTextcr = cachedTransform.Find("go_rightcentercr/Scr_ContentcrTextcr").GetComponent<ScrollRect>();
+		Text_contcr = cachedTransform.Find("go_rightcentercr/Scr_ContentcrTextcr/Content/Text_contcr").GetComponent<Text>();
+		text_Namecr = cachedTransform.Find("go_rightcentercr/Scr_ContentcrTextcr/text_Namecr").GetComponent<Text>();
+		btn_Synthesiscr = cachedTransform.Find("go_rightcentercr/btn_Synthesiscr").GetComponent<Button>();
+		go_EquipSynthesiscr = cachedTransform.Find("go_EquipSynthesiscr").gameObject;
+		btn_Closedcr = cachedTransform.Find("go_EquipSynthesiscr/btn_Closedcr").GetComponent<Button>();
+		Scr_ContentcrText2cr = cachedTransform.Find("go_EquipSynthesiscr/go_rightcenter2/Scr_ContentcrText2cr").GetComponent<ScrollRect>();
+		Text_cont2cr = cachedTransform.Find("go_EquipSynthesiscr/go_rightcenter2/Scr_ContentcrText2cr/Content/Text_cont2cr").GetComponent<Text>();
+		text_Name2cr = cachedTransform.Find("go_EquipSynthesiscr/go_rightcenter2/Scr_ContentcrText2cr/Content/text_Name2cr").GetComponent<Text>();
+		text_Rricecr = cachedTransform.Find("go_EquipSynthesiscr/go_rightcenter2/text_Rricecr").GetComponent<Text>();
+		Scr_CanSynthesisEquipcr = cachedTransform.Find("go_EquipSynthesiscr/go_topleft2/image_CanSybottom/Scr_CanSynthesisEquipcr").GetComponent<ScrollRect>();
+		glayout_CanSynthesisEquipcr = cachedTransform.Find("go_EquipSynthesiscr/go_topleft2/image_CanSybottom/Scr_CanSynthesisEquipcr/glayout_CanSynthesisEquipcr").GetComponent<GridLayoutGroup>();
+		btn_leftcr = cachedTransform.Find("go_EquipSynthesiscr/go_topleft2/image_CanSybottom/btn_leftcr").GetComponent<Button>();
+		btn_rightcr = cachedTransform.Find("go_EquipSynthesiscr/go_topleft2/image_CanSybottom/btn_rightcr").GetComponent<Button>();
 		//结束UI获取;
 		//开始texture设置;
-		TextureManager.Instance.SetTexure(rawI_EquipBottomcr,"Textures/ETCImage/bg_battle_reward.assetbundle");
 		//结束texture设置;
 		isUIinit = true;
 
@@ -149,7 +147,7 @@ public class EquipsOutsideView : SingletonMonoBehaviour<EquipsOutsideView>
         UIEventListener.Get(btn_Closedcr.gameObject).onClick = OnSynthesisCloseClick;
 
         _heroChooseEquipGrid = glayout_EquipListcr.gameObject.AddComponent<UIDataGrid>();
-        _heroChooseEquipGrid.InitDataGrid("prefab/UI/EquipsOutside/ItemeEquipOutSideChoose2cr", "ItemeEquipOutSideChoose2cr", glayout_EquipListcr.gameObject, Scr_MyEquipBarcr, CommonEnum.Direction.none);
+        _heroChooseEquipGrid.InitDataGrid("prefab/UI/EquipsOutside/ItemeEquipOutSideChoose2cr", "ItemeEquipOutSideChoose2cr", glayout_EquipListcr.gameObject, Scr_MyEquipBarcr, Direction.none);
 
         equip1 = glayout_EquipList1cr.gameObject.GetRectTransform();
         equip2 = glayout_EquipList2cr.gameObject.GetRectTransform();
@@ -158,11 +156,11 @@ public class EquipsOutsideView : SingletonMonoBehaviour<EquipsOutsideView>
         equipScr = Scr_EquipListcr.gameObject.GetRectTransform();
 
         dataEquipt1 = glayout_EquipList1cr.gameObject.AddMissingComponent<UIDataGrid>();
-        dataEquipt1.InitDataGrid("Prefab/UI/EquipsOutside/ItemeEquipOutSidecr", "ItemeEquipOutSidecr", dataEquipt1.gameObject, Scr_EquipListcr, CommonEnum.Direction.Vertical);
+        dataEquipt1.InitDataGrid("Prefab/UI/EquipsOutside/ItemeEquipOutSidecr", "ItemeEquipOutSidecr", dataEquipt1.gameObject, Scr_EquipListcr, Direction.Vertical);
         dataEquipt2 = glayout_EquipList2cr.gameObject.AddMissingComponent<UIDataGrid>();
-        dataEquipt2.InitDataGrid("Prefab/UI/EquipsOutside/ItemeEquipOutSidecr", "ItemeEquipOutSidecr", dataEquipt2.gameObject, Scr_EquipListcr, CommonEnum.Direction.Vertical);
+        dataEquipt2.InitDataGrid("Prefab/UI/EquipsOutside/ItemeEquipOutSidecr", "ItemeEquipOutSidecr", dataEquipt2.gameObject, Scr_EquipListcr, Direction.Vertical);
         dataEquipt3 = glayout_EquipList3cr.gameObject.AddMissingComponent<UIDataGrid>();
-        dataEquipt3.InitDataGrid("Prefab/UI/EquipsOutside/ItemeEquipOutSidecr", "ItemeEquipOutSidecr", dataEquipt3.gameObject, Scr_EquipListcr, CommonEnum.Direction.Vertical);
+        dataEquipt3.InitDataGrid("Prefab/UI/EquipsOutside/ItemeEquipOutSidecr", "ItemeEquipOutSidecr", dataEquipt3.gameObject, Scr_EquipListcr, Direction.Vertical);
 
         tabBar = togGroup_EquipBtnListcr.gameObject.AddComponent<TabBar>();
         tabBar.ManulInit(togGroup_EquipBtnListcr.GetComponentsInChildren<Toggle>(), togGroup_EquipBtnListcr);
@@ -195,8 +193,8 @@ public class EquipsOutsideView : SingletonMonoBehaviour<EquipsOutsideView>
     void ShowChooseItemInfo(ConfigEquip equipConfig)
     {
         text_Name2cr.text = equipConfig.name;
-        Text_cont2cr.text = EquipManager.Instance.GetEquipDec(equipConfig);
-        text_Rricecr.text = EquipManager.Instance.GetBuyMoney(equipConfig).ToString();
+        //Text_cont2cr.text = EquipManager.Instance.GetEquipDec(equipConfig);
+        //text_Rricecr.text = EquipManager.Instance.GetBuyMoney(equipConfig).ToString();
         SetCanCombine(equipConfig);
     }
     public void ClickCombineItme(ItemeEquipOutSide3cr item)
@@ -367,7 +365,7 @@ public class EquipsOutsideView : SingletonMonoBehaviour<EquipsOutsideView>
                 _currType = 3;
                 break;
         }
-        backReferrals = EquipManager.Instance.GetEquiptsFromType(_currType);
+        //backReferrals = EquipManager.Instance.GetEquiptsFromType(_currType);
 
         if (backReferrals.Count > 0)
             list1 = backReferrals[1];
@@ -415,7 +413,7 @@ public class EquipsOutsideView : SingletonMonoBehaviour<EquipsOutsideView>
         lastClickItem.ClickItem(true);
         ConfigEquip item = lastClickItem.GetData();
         text_Namecr.text = item.name;
-        Text_contcr.text = EquipManager.Instance.GetEquipDec(item);
+        //Text_contcr.text = EquipManager.Instance.GetEquipDec(item);
         for (int i = 0; i < lastClickList.Count; i++)
         {
             lastClickList[i].SetLineInfo(0, 0, 0);
@@ -597,7 +595,7 @@ public class EquipsOutsideView : SingletonMonoBehaviour<EquipsOutsideView>
 
     private void OnBtnExitClick(GameObject go)
     {
-        UILayerManager.Instance.ReturnPanel();
+        //UILayerManager.Instance.ReturnPanel();
     }
 
     private void OnModifyClick(GameObject go)
@@ -647,17 +645,13 @@ public class EquipsOutsideView : SingletonMonoBehaviour<EquipsOutsideView>
         if(isSure)
         {
             _currInfo.equip_list = list.ToArray();
-            RoleModel.Instance.TosChangeEquip(ChooseHeroType, _currInfo,2);
-            TipManager.Instance.ShowTip(string.Format("{0}修改成功", _currInfo.plan_name),Color.white);
+            //RoleModel.Instance.TosChangeEquip(ChooseHeroType, _currInfo,2);
+            //TipManager.Instance.ShowTip(string.Format("{0}修改成功", _currInfo.plan_name),Color.white);
         }
     }
 
     private void OnDefaultClick(GameObject go)
     {
-        if (Global.Instance.HeroDic.ContainsKey(ChooseHeroType))
-        {
-            SetDefault(_chooseCharactor, Global.Instance.HeroDic[ChooseHeroType].equip_id);
-        }
     }
 
     private void OnRenameClick(GameObject go)
@@ -679,50 +673,12 @@ public class EquipsOutsideView : SingletonMonoBehaviour<EquipsOutsideView>
 
     private void OnChangeHero(GameObject go)
     {
-        string[] chatPrefabs = new string[] { "Prefab/UI/Equip/ItemHeroListcr", "prefab/UI/Equip/ItemHeroChoicebtncr", "prefab/UI/Equip/ItemEquipOutsideHerocr" };
 
-        ResourceManager.Instance.LoadMutileAssets(chatPrefabs, o =>
-        {
-            if (ItemHeroListcr.Exists==false)
-            {
-                GameObject view = UGUITools.AddChild(gameObject, ResourceManager.Instance.LoadExistsAsset<GameObject>("Prefab/UI/Equip/ItemHeroListcr"));
-                view.AddComponent<ItemHeroListcr>();
-                UGUITools.SetStretch(view);
-            }
-        }, false, 3);
     }
 
     public void ChooseHero(int heroType)
     {
         ChooseHeroType = heroType;
-        _chooseCharactor = ConfigManager.Instance.GetConfig<ConfigCharactor>(ChooseHeroType);
-        if (_chooseCharactor != null)
-        {
-            image_Herocr.SetSprite(AtlasName.HeroHead, _chooseCharactor.HeadPicture);
-
-            btn_Renamedecr.gameObject.SetActive(true);
-            p_hero hero = null;
-            Global.Instance.HeroDic.TryGetValue(ChooseHeroType, out hero);
-            if (hero == null || hero.equip_list.Length == 0)
-            {
-                SetDefault(_chooseCharactor);
-            }
-            else
-            {
-                if (hero.equip_list.Length == 3)
-                    SortUtil.Sort(hero.equip_list, new string[1] { "plan_id" });
-
-                for (int i = 0; i < hero.equip_list.Length; i++)
-                {
-                    if (hero.equip_id == hero.equip_list[i].plan_id)
-                    {
-                        _currInfo = hero.equip_list[i];
-                        SetPlanData();
-
-                    }
-                }
-            }
-        }
     }
 
     public void UpdatePlanData(p_equip_info equip_info)
@@ -744,54 +700,9 @@ public class EquipsOutsideView : SingletonMonoBehaviour<EquipsOutsideView>
         _heroChooseEquipGrid.DataProvider = arr;
     }
 
-    void SetDefault(ConfigCharactor charactor,int planid = 0)
-    {
-        string[] arr = charactor.EquipPlans.Split(';');
-        for (int i = arr.Length-1; i >= 0; i--)
-        {
-            string temp = arr[i];
-            string[] tempArr = temp.Split(':');
-            p_equip_info equip_info = new p_equip_info();
-            equip_info.plan_id = i+1;
-            equip_info.plan_name = tempArr[0];
-
-            string[] equips = tempArr[1].Split(',');
-            List<int> list = new List<int>();
-            for (int j = 0; j < equips.Length; j++)
-            {
-                list.Add(int.Parse(equips[j]));
-            }
-            equip_info.equip_list = list.ToArray();
-
-            if (planid == 0 || planid == equip_info.plan_id)
-            {
-                RoleModel.Instance.TosChangeEquip(ChooseHeroType, equip_info, 4);
-            }
-        }
-    }
-
     private void OnSchemeClick(GameObject go)
     {
-        string[] chatPrefabs = new string[] { "Prefab/UI/Equip/ItemEquipmentSchemecr", "prefab/UI/Equip/ItemSingleSchemecr", "prefab/UI/EquipsOutside/ItemeEquipOutSide2cr", "prefab/UI/Equip/ItemeEquipStarcr" };
 
-        ResourceManager.Instance.LoadMutileAssets(chatPrefabs, o =>
-        {
-            if (ItemEquipmentSchemecr.Exists == false)
-            {
-                GameObject view = UGUITools.AddChild(gameObject, ResourceManager.Instance.LoadExistsAsset<GameObject>("Prefab/UI/Equip/ItemEquipmentSchemecr"));
-                view.AddComponent<ItemEquipmentSchemecr>();
-                UGUITools.SetStretch(view);
-
-                if (Global.Instance.HeroDic.ContainsKey(ChooseHeroType))
-                {
-                    ItemEquipmentSchemecr.Instance.SetData(Global.Instance.HeroDic[ChooseHeroType], _chooseCharactor);
-                }
-                else
-                {
-                    ItemEquipmentSchemecr.Instance.SetData(null, _chooseCharactor);
-                }
-            }
-        }, false, 3);
     }
 
     private ItemeEquipOutSideChoose2cr _preChooseEquipItem;
