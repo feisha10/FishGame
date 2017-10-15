@@ -11,6 +11,15 @@ public enum Direction
     Horizontal,//水平
 }
 
+public enum DirectionPostion
+{
+    Top,//置顶
+    Center,//居中
+    Bottom,  //底部
+    Left,//左
+    Right,//右
+}
+
 public enum SocketName
 {
     None,

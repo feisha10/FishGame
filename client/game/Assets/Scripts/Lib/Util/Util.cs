@@ -125,4 +125,27 @@ public static class Util
             Directory.CreateDirectory(dir);
         }
     }
+
+    public static void SetLayer(Transform tran, int layer)
+    {
+        tran.gameObject.layer = layer;
+        int childCount = tran.childCount;
+        for (int i = 0; i < childCount; ++i)
+        {
+            var tChild = tran.GetChild(i);
+            SetLayer(tChild, layer);
+        }
+    }
+
+    public static void SetLayer(GameObject go, int layer)
+    {
+        var tran = go.transform;
+        go.layer = layer;
+        int childCount = tran.childCount;
+        for (int i = 0; i < childCount; ++i)
+        {
+            var tChild = tran.GetChild(i);
+            SetLayer(tChild, layer);
+        }
+    }
 }
